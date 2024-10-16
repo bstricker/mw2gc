@@ -1,0 +1,11 @@
+.venv/
+
+.DS_Store
+
+*.fit
+*.dms
+*.csv
+
+__pycache__/
+*.py[cod]
+*$py.class
