@@ -33,7 +33,7 @@ def main():
     browser.open_new_tab(URL_MW_ACTIVITIES)
 
     # Wait for user to finish downloading
-    input("Press any key once done...")
+    activity_name = input("Enter activity name copied from MyWhoosh:\n").strip()
 
     fit_files = get_fit_files(downloads_dir, THRESHOLD_FIT_FILES)
 
@@ -49,10 +49,12 @@ def main():
 
     # Print message for the user
     print(f"Files ready for upload on {URL_GARMIN_IMPORT}:\n{''.join([str(file) for file in fixed_files])}")
+    if activity_name:
+        print(f"Your activity name is:\n{activity_name}")
     browser.open_new_tab(URL_GARMIN_IMPORT)
 
     # Wait for user to finish uploading
-    input("Press any key once done to delete all fit files...")
+    input("Press enter once done to delete all fit files...")
 
     # Delete the .fit files after upload
     for fit_file in fixed_files:
