@@ -37,6 +37,10 @@ def main():
 
     fit_files = get_fit_files(downloads_dir, THRESHOLD_FIT_FILES)
 
+    if not fit_files:
+        print("No .fit files found in Downloads folder. Did you download the data?")
+        input("Press enter to continue...")
+    
     # Process each .dms file in Downloads
     for file in fit_files:
         print(f"Now processing file {file}")
